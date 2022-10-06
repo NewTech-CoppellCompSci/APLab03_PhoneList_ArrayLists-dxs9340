@@ -2,6 +2,10 @@ package phoneList;
 
 import java.util.Scanner;
 
+import notes01_basic_objects.Student;
+
+import java.util.ArrayList;
+
 /*
  * Phone List
  * 
@@ -29,13 +33,18 @@ public class PhoneList {
 	/*
 	 * Instance Variables
 	 */
-	
+	private String name;
+	private int num;
 	
 	
 	//Constructor
-	public PhoneList() {
+	public PhoneList(String name,int num) {
 		//initialize instance variables
+		this.name = name;  
+		this.num = num;
 	}
+	
+	ArrayList<Contact> phonelist = new ArrayList<Contact>();
 	
 	
 	/*
@@ -51,7 +60,17 @@ public class PhoneList {
 	 */
 	public void addContact() {
 		
+		Scanner inKey = new Scanner(System.in);
+		Scanner inKey1 = new Scanner(System.in);
 		
+		System.out.print("Contact Name?");  //prompt the user
+		String nam = inKey.nextLine();	// store
+		System.out.print("Contact Number?");  //prompt the user
+		int number = inKey1.nextInt();	 // store
+		
+		Contact xx = new Contact(nam, number);
+		
+
 	}
 	
 	
@@ -72,6 +91,13 @@ public class PhoneList {
 	 */
 	public void removeContact() {
 		
+		Scanner inKey1 = new Scanner(System.in);
+		System.out.print("Contact Name?");  //prompt the user
+		String nam = inKey1.nextLine();	// store
+		
+		for (int i = 0; i <= phonelist.size(); i++) {
+			
+		}
 		
 	}
 	
@@ -88,6 +114,8 @@ public class PhoneList {
 	 *          #################
 	 */
 	public void printList() {
+		
+		System.out.println("-----------------");
 		
 	}
 

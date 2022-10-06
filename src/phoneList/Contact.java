@@ -21,4 +21,26 @@ package phoneList;
 
 public class Contact {
 
+	private String name; 
+	private double phonenumber;
+	
+	public Contact (String name, double phonenumber) {
+		this.name = name;  
+		this.phonenumber = phonenumber;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public double getphonenumber() {
+		return phonenumber;
+	}
+	
+	public String toString() {
+		return "Name: " + name 
+				+ "\nPhone Number: $" + phonenumber;
+	}
+	
+	
 }
