@@ -33,14 +33,14 @@ public class PhoneList {
 	/*
 	 * Instance Variables
 	 */
-	private String name;
-	private int num;
+	private static String name;
+	private static int num;
 	
 	
 	//Constructor
 	public PhoneList(String name,int num) {
 		//initialize instance variables
-		this.name = name;  
+		this.name = name;
 		this.num = num;
 	}
 	
@@ -68,8 +68,26 @@ public class PhoneList {
 		System.out.print("Contact Number?");  //prompt the user
 		int number = inKey1.nextInt();	 // store
 		
-		Contact xx = new Contact(nam, number);
+		Contact con = new Contact(nam, number);
 		
+		if (phonelist.size() == 0) {
+			phonelist.add(con);
+		}
+		else {
+			boolean added = false;
+			for (int i = 0; i < phonelist.size(); i++) {
+				if (phonelist.get(i).getName().compareToIgnoreCase(con.getName()) >= 0) {
+					phonelist.add(i, con);
+					added = true;
+					break;
+				}
+			}
+			if (!added) {
+				phonelist.add(con);
+			}
+		}
+		
+		System.out.println("A new contact has been added\n" + con.toString());
 
 	}
 	
@@ -95,9 +113,20 @@ public class PhoneList {
 		System.out.print("Contact Name?");  //prompt the user
 		String nam = inKey1.nextLine();	// store
 		
-		for (int i = 0; i <= phonelist.size(); i++) {
-			
+		boolean found = false;
+		for (int i = 0; i < phonelist.size(); i++) {
+			if (phonelist.get(i).getName().compareToIgnoreCase(nam) == 0) {
+				found = true;
+				phonelist.get(i).toString();
+				System.out.println("Contact has been removed");
+				phonelist.remove(i);
+				break;
+			}
 		}
+		if (!found) {
+			System.out.println("Contact not found");
+		}
+	
 		
 	}
 	
@@ -116,6 +145,9 @@ public class PhoneList {
 	public void printList() {
 		
 		System.out.println("-----------------");
+		for (int i = 0; i < phonelist.size(); i++) {
+			phonelist.get(i).toString();
+			}
 		
 	}
 
@@ -192,7 +224,7 @@ public class PhoneList {
 	
 	
 	public static void main(String[] args) {
-		PhoneList app = new PhoneList();
+		PhoneList app = new PhoneList(name, num);
 		app.menu();
 	}
 }

@@ -39,7 +39,7 @@ public class Contact {
 	
 	public String toString() {
 		return "Name: " + name 
-				+ "\nPhone Number: $" + phonenumber;
+				+ "\nPhone Number: " + phonenumber;
 	}
 	
 	
