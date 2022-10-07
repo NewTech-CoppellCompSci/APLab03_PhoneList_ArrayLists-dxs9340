@@ -38,10 +38,10 @@ public class PhoneList {
 	
 	
 	//Constructor
-	public PhoneList(String name,int num) {
+	public PhoneList(String lname,int lnum) {
 		//initialize instance variables
-		this.name = name;
-		this.num = num;
+		this.name = lname;
+		this.num = lnum;
 	}
 	
 	ArrayList<Contact> phonelist = new ArrayList<Contact>();
